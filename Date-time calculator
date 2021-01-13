@@ -1,0 +1,152 @@
+import datetime
+
+print('Today')
+today = datetime.date.today()
+print(today)
+
+print('Birthday')
+birthday = datetime.date(1992,11,20)
+print(birthday)
+
+print('Days Alive')
+days_alive = (today - birthday).days
+print(days_alive)
+
+print('Months Alive')
+months_alive = (days_alive/12)
+print(months_alive)
+
+print('Years Alive')
+years_alive = (days_alive/365)
+print(years_alive)
+
+#How to calculate a future date by adding days to the current date:
+
+tdelta = datetime.timedelta(days=3500)
+print(today + tdelta)
+
+#Past
+#we can do the same by using subtraction and looking into the past:
+
+tdelta = datetime.timedelta(days=4000)
+print(today - tdelta)
+
+print(today.day)
+print(today.month)
+print(today.weekday())  #which day in the week it is as an integer
+
+day_today = {
+  'Monday' : [0],
+  'Tuesday' : [1],
+  'Wednesday' : [2],
+  'Thursday' : [3],
+  'Friday' : [4],
+  'Saturday' : [5],
+  'Sunday' : [6]
+}
+
+for days in day_today:
+  print(days[0:3])
+
+
+
+def looking_for_day():
+  find_day()
+
+  if find_day() == [0]:
+    return(day_today[0])
+  elif find_day() == [1]:
+    return(day_today[1])
+  elif find_day() == [2]:
+    return(day_today[2]),
+  elif find_day() == [3]:
+    return(day_today[3])
+  elif find_day() == [4]:
+    return(day_today[4])
+  elif find_day() == [5]:
+    return(day_today[5])
+  elif find_day() == [6]:
+    return(day_today[6])
+  return
+
+
+def find_day():
+  day_today = (today.weekday())
+  
+
+  print(day_today)
+
+
+#----------------------------------------------------------------------------
+
+                #Calculate and display day of the week
+                           #in words
+
+#Logic that I need to use:
+ # Explain what a week is
+    # Mon - Sun
+ # Explain what a day is
+    # Import current_day 
+      #Display current_day() as an intiger
+  #import current_day
+
+ # Check for intiger match of current_day() with dictionary
+
+
+
+
+
+looking_for_day = True
+current_day = 'Monday' or 'Tuesday' or 'Wednesday' or 'Thursday' or 'Friday' or 'Saturday' or 'Sunday'
+check_day_match = None
+
+
+
+#explain what a week is:
+days_in_week = {
+ [0] : 'Monday',
+ [1] : 'Tuesday',
+ [2] : 'Wednesday',
+ [3] : 'Thursday',
+ [4] : 'Friday',
+ [5] : 'Saturday',
+ [6] : 'Sunday'
+}
+
+
+def current_day(days_in_week):
+  current_day = (today.weekday())
+  print(current_day)
+
+# Check for intiger match of current_day() with dictionary
+
+def check_day_match():
+
+  Monday = current_day[0] == days_in_week[0]
+  Tuesday = current_day[1] == days_in_week[1]
+  Wednesday = current_day[2] == days_in_week[2]
+  Thursday = current_day[3] == days_in_week[3]
+  Friday = current_day[4] == days_in_week[4]
+  Saturday = current_day[5] == days_in_week[5]
+  Sunday = current_day[6] == days_in_week[6]
+
+  if Monday:  
+    return days_in_week[0]
+  elif Tuesday:
+    return days_in_week[1]
+  elif Wednesday:
+    return days_in_week[2]
+  if Thursday:  
+    return days_in_week[3]
+  elif Friday:
+    return days_in_week[4]
+  elif Saturday:
+    return days_in_week[5]
+  elif Sunday:
+    return days_in_week[6]
+
+
+
+while looking_for_day:
+  current_day(days_in_week)
+  check_day_match()
