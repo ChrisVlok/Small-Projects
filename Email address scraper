@@ -1,0 +1,54 @@
+# Firstly we need to import Regular Expressions 
+# this will allow us to match certain patterns in strings and text
+
+import re
+
+#we are going to look at what makes an email address and express this so that we can use it as a search boundary for the computer
+
+text = 'random string.'
+
+#we are going to start describing the pattern that we are looking for:
+
+pattern = re.compile('random string.')
+
+result = pattern.search(text)  #dictates that any pattern in the search that is found inside text will be displayed as a result
+
+print(result)
+
+#now lets place special characters in the search pattern of the string:
+
+pattern = re.compile('[ABCabc]')  
+result1 = pattern.search(text)
+print(result1)
+
+#What we have done above is search the text list for any match of the individual letters of A B and C.
+#Note that with this search method it will only display the first match it finds and none of the others
+
+pattern = re.compile('[a-z]')  #it is case sensetive
+result2 = pattern.search(text)
+print(result2)
+
+#lets look at how to find more than 1 match by adding a plus sign
+  #This only works for one word at a time and not for a whole sentence
+
+pattern = re.compile('[a-zA-Z0-9]+')  
+result3 = pattern.search(text)
+print(result3)
+
+#Lets look at how we isolate an email address out of a string of multiple elements:
+# A useful trick being that there is an '@' sign in an email addrerss so we can use that pattern to look for emails.
+
+text1 = 'random string. flyguy45@gmail.co.za. viper and the boys'
+
+pattern = re.compile('[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+\.[a-zA-Z]+') #We use a backslash '\' to indicate that we want to search for a special character symbol, in this case the period '.' so we place it as follows: '\.'
+result4 = pattern.search(text1)
+print(result4)
+
+#Now what if there are multiple email addresses in the string:
+  #we manipulate the code for 'pattern.search()' and we change it to 'pattern.findall()'
+
+text2 = 'flyguy45@gmail.co.za . mrfruit@amongus.com . welovegames@play.fr .'
+
+pattern = re.compile('[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z\.a-zA-Z]+')
+result5 = pattern.findall(text2)
+print(result5)
