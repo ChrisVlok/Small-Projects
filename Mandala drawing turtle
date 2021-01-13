@@ -1,0 +1,25 @@
+import turtle
+
+c_turtle = turtle.Turtle()
+
+def square():
+  c_turtle.forward(100)
+  c_turtle.right(90)
+  c_turtle.forward(100)
+  c_turtle.right(90)
+  c_turtle.forward(100)
+  c_turtle.right(90)
+  c_turtle.forward(100)
+
+def mandala():
+
+ for count in range(4):
+    
+    for count in range(10):
+      square()
+      c_turtle.right(100)
+
+    c_turtle.right(170)
+    c_turtle.forward(100)  
+
+mandala()
